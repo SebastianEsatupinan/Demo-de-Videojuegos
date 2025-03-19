@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028414, g: 0.2257149, b: 0.30692327, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028408, g: 0.22571531, b: 0.30692437, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -284,9 +284,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.0726862
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.036343098, z: -0.00000011920929}
 --- !u!23 &371118912
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -954,6 +954,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 970562105255927429, guid: 59d26d65ccf29484dad220727fd66ee7, type: 3}
+      propertyPath: m_Height
+      value: 1.5139638
+      objectReference: {fileID: 0}
+    - target: {fileID: 970562105255927429, guid: 59d26d65ccf29484dad220727fd66ee7, type: 3}
+      propertyPath: m_Radius
+      value: 0.14506873
+      objectReference: {fileID: 0}
+    - target: {fileID: 970562105255927429, guid: 59d26d65ccf29484dad220727fd66ee7, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0037916899
+      objectReference: {fileID: 0}
+    - target: {fileID: 970562105255927429, guid: 59d26d65ccf29484dad220727fd66ee7, type: 3}
+      propertyPath: m_Center.y
+      value: 0.70898265
+      objectReference: {fileID: 0}
+    - target: {fileID: 970562105255927429, guid: 59d26d65ccf29484dad220727fd66ee7, type: 3}
+      propertyPath: m_Center.z
+      value: 0.01820554
+      objectReference: {fileID: 0}
     - target: {fileID: 3677742235183837820, guid: 59d26d65ccf29484dad220727fd66ee7, type: 3}
       propertyPath: m_Name
       value: Personaje Variant
