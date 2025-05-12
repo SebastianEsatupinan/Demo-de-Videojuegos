@@ -44,4 +44,10 @@ public class Entregas : MonoBehaviour
             ActivarNuevoPunto();
         }
     }
+    public void IniciarDesdePedido()
+    {
+        DesactivarTodos();
+        ActivarNuevoPunto();
+    }
+
 }

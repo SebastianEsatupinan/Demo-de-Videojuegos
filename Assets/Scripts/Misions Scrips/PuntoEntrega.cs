@@ -14,6 +14,14 @@ public class PuntoEntrega : MonoBehaviour
         if (other.CompareTag("Player")) // Asegúrate de que tu jugador tenga el tag "Player"
         {
             sistemaEntregas.PuntoAlcanzado(gameObject);
+
+            PedidoManager pedidoManager = FindObjectOfType<PedidoManager>();
+            if (pedidoManager != null)
+
+            {
+                pedidoManager.CompletarPedido();
+            }
+
         }
     }
 }
