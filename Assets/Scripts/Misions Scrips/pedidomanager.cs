@@ -41,7 +41,10 @@ public class PedidoManager : MonoBehaviour
             textoPedido.text = " ¡Pedido fallido!";
             textoPedido.color = Color.red;
 
-            Invoke(nameof(IniciarNuevoPedido), 2f);
+            PuntajeManager.Instance?.RestarPuntos(5);
+
+
+            Invoke(nameof(IniciarNuevoPedido), 3f);
         }
     }
 
@@ -53,13 +56,15 @@ public class PedidoManager : MonoBehaviour
         textoPedido.text = " ¡Pedido entregado!";
         textoPedido.color = Color.green;
 
+        PuntajeManager.Instance?.SumarPuntos(10);
+
         // ▶ Reproducir sonido de entrega
         if (audioSource != null && sonidoEntrega != null)
         {
             audioSource.PlayOneShot(sonidoEntrega);
         }
 
-        Invoke(nameof(IniciarNuevoPedido), 1.5f);
+        Invoke(nameof(IniciarNuevoPedido), 3f);
     }
 
     void IniciarNuevoPedido()

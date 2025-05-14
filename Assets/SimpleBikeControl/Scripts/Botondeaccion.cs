@@ -3,66 +3,49 @@ using UnityEngine.UI;
 
 public class ColliderTrigger : MonoBehaviour
 {
-    public Collider targetCollider;  // Colisionador que queremos detectar
-    public GameObject panel;         // Panel que queremos activar
-    public Button interactButton;    // Botón de interacción dentro del panel
-    private bool isOnBike = false;   // Para saber si el jugador está en la moto
+    public Collider targetCollider;
+    public GameObject panel;
+
+    private bool isPlayerInside = false;
+    private bool yaInteractuo = false;
 
     private void Start()
     {
-        // Inicialmente, el panel está apagado
         if (panel != null)
-        {
             panel.SetActive(false);
-        }
+    }
 
-        // Aseguramos que el botón de interacción esté escuchando el evento de clic
-        if (interactButton != null)
+    private void Update()
+    {
+        // Si el jugador está dentro, no ha interactuado aún, y presiona F
+        if (isPlayerInside && !yaInteractuo && Input.GetKeyDown(KeyCode.F))
         {
-            interactButton.onClick.AddListener(OnInteractButtonClicked);
+            panel.SetActive(false);     // Ocultar panel
+            yaInteractuo = true;        // Evitar que vuelva a mostrarse
+            Debug.Log("Interactuó con F");
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Verifica si el objeto que entra al colisionador es el objetivo (la moto)
-        if (other == targetCollider)
+        if (other == targetCollider && !yaInteractuo)
         {
-            // Solo activamos el panel si el jugador no está en la moto
-            if (!isOnBike && panel != null)
-            {
-                panel.SetActive(true);
-            }
+            isPlayerInside = true;
+
+            if (panel != null)
+                panel.SetActive(true);  // Mostrar panel al acercarse
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        // Verifica si el objeto que sale del colisionador es el objetivo
         if (other == targetCollider)
         {
-            // Solo desactivamos el panel si el jugador no está en la moto
-            if (!isOnBike && panel != null)
-            {
-                panel.SetActive(false);
-            }
-        }
-    }
+            isPlayerInside = false;
+            yaInteractuo = false;       // Permitir que el panel vuelva a aparecer en el futuro
 
-    // Función que se llama cuando el botón de interacción es presionado
-    private void OnInteractButtonClicked()
-    {
-        // Si el panel está activado y el jugador está en la moto, lo apagamos
-        if (panel.activeSelf)
-        {
-            panel.SetActive(false);
-            isOnBike = false;  // El jugador se baja de la moto
-        }
-        else
-        {
-            // Si el panel no está activado, significa que el jugador se ha vuelto a acercar o ha interactuado en la moto
-            isOnBike = true;  // El jugador sube a la moto
+            if (panel != null)
+                panel.SetActive(false); // Ocultar panel al salir del área
         }
     }
 }
-
