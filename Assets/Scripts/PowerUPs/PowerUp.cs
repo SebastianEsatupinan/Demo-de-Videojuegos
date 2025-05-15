@@ -1,35 +1,33 @@
-using System.Collections;
 using UnityEngine;
+//KikiNgao.SimpleBikeControl.PlayerController player = other.GetComponent<KikiNgao.SimpleBikeControl.PlayerController>();
+
+
+
 
 public class PowerUp : MonoBehaviour
 {
-    public float duration = 5f; // Duración del efecto
 
-    void OnTriggerEnter(Collider other)
+    public enum TipoPowerUp { Velocidad10s, Velocidad15s }
+    public TipoPowerUp tipo;
+
+    public float velocidadExtra = 3f;
+
+    private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Colisión con: " + other.name); // Verificación básica
+
         if (other.CompareTag("Player"))
         {
-            ApplyEffect(other.gameObject);
-            GetComponent<Collider>().enabled = false;
-            GetComponent<MeshRenderer>().enabled = false;
-            StartCoroutine(DisableAfterTime(other.gameObject));
+            Debug.Log("¡Colisión con el jugador!");
+
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                float duracion = tipo == TipoPowerUp.Velocidad15s ? 15f : 10f;
+                //player.AplicarPowerUpVelocidad(velocidadExtra, duracion);
+            }
+
+            Destroy(gameObject); // Elimina la esfera
         }
     }
-
-    protected virtual void ApplyEffect(GameObject player) { }
-    protected virtual void RemoveEffect(GameObject player) { }
-
-    IEnumerator DisableAfterTime(GameObject player)
-    {
-        float elapsedTime = 0f;
-        while (elapsedTime < duration)
-        {
-            Debug.Log("Power-up activo. Tiempo restante: " + (duration - elapsedTime) + " segundos.");
-            yield return new WaitForSeconds(1f);
-            elapsedTime += 1f;
-        }
-
-        RemoveEffect(player);
-        Debug.Log("Power-up ha terminado.");
-    }
-}
+}//

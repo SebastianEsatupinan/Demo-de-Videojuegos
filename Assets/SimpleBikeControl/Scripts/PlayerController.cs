@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections; // Necesario para IEnumerator
 
 namespace KikiNgao.SimpleBikeControl
 {
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour
     {
-
         [Header("Player Setting")]
         public bool disable;
         [SerializeField] private string AnimSpeedParaName = "Speed";
@@ -30,7 +30,11 @@ namespace KikiNgao.SimpleBikeControl
         private InputManager inputManager;
         private Vector3 offset;
         private Vector3 gravityMagnitude;
-        
+
+        //  Power-up variables
+        private float velocidadOriginal;
+        private Coroutine boostCoroutine;
+
         private void Start()
         {
             inputManager = GameManager.Instance.GetInputManager;
@@ -38,22 +42,24 @@ namespace KikiNgao.SimpleBikeControl
             m_Animator = GetComponent<Animator>();
             camTrans = Camera.main.transform;
             gravityMagnitude = new Vector3(0, gravity, 0);
+
+            velocidadOriginal = runSpeed; // Guarda velocidad base al iniciar
         }
+
         public void DisablePlayerCtrl() { disable = true; characterCtrl.enabled = false; }
         public void EnablePlayerCtrl() { disable = false; characterCtrl.enabled = true; }
 
         void FixedUpdate()
         {
             if (disable) return;
-            // input
+
             float inputSpeed = Mathf.Clamp01(Mathf.Abs(inputManager.horizontal) + Mathf.Abs(inputManager.vertical));
-            
             bool has_H_Input = !Mathf.Approximately(inputManager.horizontal, 0);
             bool has_V_Input = !Mathf.Approximately(inputManager.vertical, 0);
 
             if (!stopMoverment) moving = has_H_Input || has_V_Input;
             else moving = false;
-            // move vector 
+
             if (camTrans != null)
             {
                 camForward = Vector3.Scale(camTrans.forward, new Vector3(1, 0, 1).normalized);
@@ -64,24 +70,34 @@ namespace KikiNgao.SimpleBikeControl
             m_Velocity = inputSpeed * m_MoveVector * runSpeed * Time.deltaTime;
             if (!characterCtrl.isGrounded) m_Velocity += gravityMagnitude;
 
-            //animation    
-
-
-
-
-            //m_Animator.SetBool("Moving", moving);
             m_Animator.SetFloat(AnimSpeedParaName, inputSpeed);
-
-            //move and rotate
 
             Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_MoveVector, turnSpeed * Time.deltaTime, 0f);
             desiredRotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredForward), turnSpeed);
             transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * rotationDamping);
             characterCtrl.Move(m_Velocity);
-
-
         }
 
+        //  MÉTODO PÚBLICO PARA APLICAR BOOST
+        public void AplicarPowerUpVelocidad(float bonus, float duracion)
+        {
+            if (boostCoroutine != null)
+                StopCoroutine(boostCoroutine);
+
+            boostCoroutine = StartCoroutine(BoostVelocidad(bonus, duracion));
+        }
+
+        //  COROUTINA TEMPORAL DE BOOST
+        private IEnumerator BoostVelocidad(float bonus, float duracion)
+        {
+            runSpeed += bonus;
+            Debug.Log(" Power-Up activado! Nueva velocidad: " + runSpeed);
+
+            yield return new WaitForSeconds(duracion);
+
+            runSpeed = velocidadOriginal;
+            Debug.Log(" Power-Up finalizado. Velocidad restaurada: " + runSpeed);
+        }
     }
 }
 
