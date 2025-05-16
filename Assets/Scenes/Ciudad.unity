@@ -1838,7 +1838,7 @@ GameObject:
   - component: {fileID: 131230960}
   - component: {fileID: 131230962}
   - component: {fileID: 131230961}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1857,8 +1857,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1308420364}
-  - {fileID: 338544815}
   - {fileID: 1596768466}
   - {fileID: 316077031}
   m_Father: {fileID: 2129675258}
@@ -2055,6 +2053,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 338544815}
   - {fileID: 2129675258}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2948,7 +2947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198003109}
   - component: {fileID: 198003110}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: json
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4612,7 +4611,7 @@ GameObject:
   - component: {fileID: 316077031}
   - component: {fileID: 316077033}
   - component: {fileID: 316077032}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Celular
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4689,7 +4688,7 @@ GameObject:
   - component: {fileID: 316851657}
   - component: {fileID: 316851656}
   - component: {fileID: 316851655}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5111,7 +5110,7 @@ GameObject:
   - component: {fileID: 338544818}
   - component: {fileID: 338544817}
   - component: {fileID: 338544816}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: brujula
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5127,11 +5126,12 @@ Transform:
   m_GameObject: {fileID: 338544814}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -31.599976, y: 257.2, z: 18.6}
-  m_LocalScale: {x: 78.96912, y: 0.7243961, z: 79.212234}
+  m_LocalPosition: {x: 863.2645, y: 980.0236, z: 0}
+  m_LocalScale: {x: 128.56172, y: 0.72439593, z: 118.25595}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 131230960}
+  m_Children:
+  - {fileID: 1308420364}
+  m_Father: {fileID: 138847012}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &338544816
 MonoBehaviour:
@@ -7713,7 +7713,7 @@ GameObject:
   - component: {fileID: 560375337}
   - component: {fileID: 560375339}
   - component: {fileID: 560375338}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7921,7 +7921,7 @@ GameObject:
   - component: {fileID: 577502265}
   - component: {fileID: 577502267}
   - component: {fileID: 577502266}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: textoPedido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9464,7 +9464,7 @@ GameObject:
   - component: {fileID: 667547108}
   - component: {fileID: 667547110}
   - component: {fileID: 667547109}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11909,7 +11909,7 @@ GameObject:
   - component: {fileID: 882283878}
   - component: {fileID: 882283879}
   - component: {fileID: 882283880}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PedidoManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12623,7 +12623,7 @@ GameObject:
   - component: {fileID: 928209564}
   - component: {fileID: 928209563}
   - component: {fileID: 928209562}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TextoDashboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13169,7 +13169,7 @@ GameObject:
   - component: {fileID: 951085166}
   - component: {fileID: 951085168}
   - component: {fileID: 951085167}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15927,7 +15927,7 @@ GameObject:
   - component: {fileID: 1009228520}
   - component: {fileID: 1009228522}
   - component: {fileID: 1009228521}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Recuadro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17794,7 +17794,7 @@ GameObject:
   - component: {fileID: 1148595473}
   - component: {fileID: 1148595475}
   - component: {fileID: 1148595474}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19750,7 +19750,7 @@ GameObject:
   - component: {fileID: 1308420364}
   - component: {fileID: 1308420363}
   - component: {fileID: 1308420362}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: punto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19815,12 +19815,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308420361}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -31.900024, y: 291.3, z: 16.6}
-  m_LocalScale: {x: 11.458679, y: 0.7243961, z: 11.945806}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.003, y: 1.38045, z: -0.4648932}
+  m_LocalScale: {x: 0.08912978, y: 1, z: 0.10101651}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 131230960}
+  m_Father: {fileID: 338544815}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1314399336 stripped
 GameObject:
@@ -23643,7 +23643,7 @@ GameObject:
   - component: {fileID: 1596768466}
   - component: {fileID: 1596768468}
   - component: {fileID: 1596768467}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Barra de estado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23745,7 +23745,7 @@ GameObject:
   - component: {fileID: 1599747507}
   - component: {fileID: 1599747509}
   - component: {fileID: 1599747508}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Recuadro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25755,7 +25755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1744670086}
   - component: {fileID: 1744670087}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tiempo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26688,7 +26688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1832958000}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Puntaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28552,7 +28552,7 @@ GameObject:
   - component: {fileID: 1979204268}
   - component: {fileID: 1979204272}
   - component: {fileID: 1979204267}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PJ camara
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30446,7 +30446,7 @@ GameObject:
   - component: {fileID: 2105389755}
   - component: {fileID: 2105389754}
   - component: {fileID: 2105389753}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TextoPuntaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30728,7 +30728,7 @@ GameObject:
   - component: {fileID: 2115398342}
   - component: {fileID: 2115398344}
   - component: {fileID: 2115398343}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PanelPausa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30887,7 +30887,7 @@ GameObject:
   - component: {fileID: 2129675261}
   - component: {fileID: 2129675260}
   - component: {fileID: 2129675259}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30948,10 +30948,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
