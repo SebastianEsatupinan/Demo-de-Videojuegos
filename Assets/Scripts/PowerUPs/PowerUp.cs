@@ -1,33 +1,54 @@
+Ôªø// PowerUp.cs
 using UnityEngine;
-//KikiNgao.SimpleBikeControl.PlayerController player = other.GetComponent<KikiNgao.SimpleBikeControl.PlayerController>();
+using System.Collections;
 
-
-
-
-public class PowerUp : MonoBehaviour
+namespace KikiNgao.SimpleBikeControl
 {
-
-    public enum TipoPowerUp { Velocidad10s, Velocidad15s }
-    public TipoPowerUp tipo;
-
-    public float velocidadExtra = 3f;
-
-    private void OnTriggerEnter(Collider other)
+    [RequireComponent(typeof(Collider))]
+    public class PowerUp : MonoBehaviour
     {
-        Debug.Log("ColisiÛn con: " + other.name); // VerificaciÛn b·sica
+        public enum TipoPowerUp { Velocidad10s, Velocidad15s }
 
-        if (other.CompareTag("Player"))
+        [Header("Tipo de Power-Up")]
+        public TipoPowerUp tipo = TipoPowerUp.Velocidad10s;
+
+        [Header("Rango de Boost de Velocidad")]
+        [Tooltip("Valor m√≠nimo de velocidad extra")]
+        public float minVelExtra = 1f;
+        [Tooltip("Valor m√°ximo de velocidad extra")]
+        public float maxVelExtra = 5f;
+
+        [Header("Rango de Puntuaci√≥n")]
+        [Tooltip("Puntos m√≠nimos que otorga")]
+        public int minPuntaje = 10;
+        [Tooltip("Puntos m√°ximos que otorga")]
+        public int maxPuntaje = 50;
+
+        private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("°ColisiÛn con el jugador!");
+            if (!other.CompareTag("Player")) return;
 
-            PlayerController player = other.GetComponent<PlayerController>();
-            if (player != null)
+            var player = other.GetComponent<PlayerController>();
+            if (player == null)
             {
-                float duracion = tipo == TipoPowerUp.Velocidad15s ? 15f : 10f;
-                //player.AplicarPowerUpVelocidad(velocidadExtra, duracion);
+                Debug.LogError("PowerUp: no se encontr√≥ PlayerController en el Player.");
+                return;
             }
 
-            Destroy(gameObject); // Elimina la esfera
+            // 10s √≥ 15s seg√∫n tipo
+            float duracion = (tipo == TipoPowerUp.Velocidad15s) ? 15f : 10f;
+            // elige aleatorio en los rangos
+            float velocidadRandom = Random.Range(minVelExtra, maxVelExtra);
+            int puntajeRandom = Random.Range(minPuntaje, maxPuntaje + 1);
+
+            Debug.Log($"[PowerUp] +{velocidadRandom:F2} velocidad por {duracion:F0}s y +{puntajeRandom} puntos.");
+
+            // Aplica el boost de velocidad
+            player.AplicarPowerUpVelocidad(velocidadRandom, duracion);
+            // Suma los puntos al gestor global
+            PuntajeManager.Instance.SumarPuntos(puntajeRandom);
+
+            Destroy(gameObject);
         }
     }
-}//
+}
