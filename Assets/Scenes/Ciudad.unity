@@ -10804,7 +10804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3892aed002e6f4a98e9c500238e234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipo: 0
+  tipoPowerUp: 0
   minVelExtra: 1
   maxVelExtra: 5
   minPuntaje: 10
@@ -29397,7 +29397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3892aed002e6f4a98e9c500238e234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipo: 0
+  tipoPowerUp: 0
   minVelExtra: 1
   maxVelExtra: 5
   minPuntaje: 10
