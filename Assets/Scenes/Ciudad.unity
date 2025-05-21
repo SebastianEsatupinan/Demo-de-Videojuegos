@@ -6770,6 +6770,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCollider: {fileID: 8273054251136207814}
   panel: {fileID: 316851654}
+--- !u!114 &463399047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 789433636725128168, guid: e408b2ebecda8c64fb9844e77dc58c4a, type: 3}
+  m_PrefabInstance: {fileID: 1451480445}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78940754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293d40ea4216f024f80fa94589784f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &466099010
 GameObject:
   m_ObjectHideFlags: 0
@@ -10804,6 +10815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3892aed002e6f4a98e9c500238e234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 463399047}
   tipoPowerUp: 0
   minVelExtra: 1
   maxVelExtra: 5
@@ -29397,6 +29409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3892aed002e6f4a98e9c500238e234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 463399047}
   tipoPowerUp: 0
   minVelExtra: 1
   maxVelExtra: 5
